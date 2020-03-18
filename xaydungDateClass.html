@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let myDate = function (day, month, year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.getDay = function () { //tạo hàm để gọi thông tin "day"
+            return this.day
+        }
+        this.getMonth = function () { // tạo hàm để gọi thông tin "month"
+            return this.month
+        }
+        this.getYear = function () { // tạo hàm để gọi thông tin "year"
+            return this.year
+        }
+        this.setDay = function (day) {
+            this.day = day;
+        }
+        this.setMonth = function (month) {
+            this.month = month;
+        }
+        this.setYear = function (year) {
+            this.year = year;
+        }
+        this.setDate = function (day, month, year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        };
+        this.toString = function () {
+            return this.day + "/" + this.month + "/" + this.year;
+        }
+    };
+
+    let date = new myDate();
+
+    date.setDay(25);
+    date.setMonth(12);
+    date.setYear(1993);
+
+    let day = date.getDay();
+    let month = date.getMonth();
+    let year = date.getYear();
+
+    alert(day + "/" + month + "/" + year);
+    date.setDate(10,12,1999);
+    alert(date.toString());
+</script>
+
+</body>
+</html>

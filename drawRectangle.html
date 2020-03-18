@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="draw" width="1600px" height="900px"></canvas>
+<script>
+function Rectangle(x,y,w,h) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.chuvi= function () {
+        return (w+h)*2;
+    };
+    this.dientich=function () {
+        return w*h;
+    };
+}
+function getrandomHex() {
+    return Math.floor(Math.random()*255);
+}
+function makeColor() {
+    let red=getrandomHex();
+    let green=getrandomHex();
+    let blue=getrandomHex();
+    return 'rgb(' + red +',' + green +','+blue+')';
+}
+function drawRentangle() {
+    let color=makeColor();
+    let x=Math.random()*innerWidth;
+    let y=Math.random()*innerHeight;
+    let w=Math.floor(Math.random()*400);
+    let h=Math.floor(Math.random()*300);
+    let c=document.getElementById('draw');
+    let ctx= c.getContext('2d');
+    let rec= new Rectangle(x,y,w,h);
+    ctx.beginPath();
+    ctx.rect(rec.x,rec.y,rec.w,rec.h);
+    ctx.fillStyle =color;
+    ctx.fill();
+}
+function randomNumber() {
+    return Math.floor(Math.random()*20)
+}
+function drawMultiRectangle(a) {
+    for (i=0;i<a;i++) {
+        drawRentangle();
+    }
+}
+drawMultiRectangle(randomNumber());
+</script>
+
+</body>
+</html>

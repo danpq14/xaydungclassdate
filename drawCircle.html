@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="draw" width="1368px" height="768px" ></canvas>
+<script>
+    function Circle(x, y, r){
+        this.x = x;
+        this.y = y;
+        this.r = r;
+    }
+    function getrandomHex() {
+    return Math.floor(Math.random()*255);
+    }
+    function makeColor() {
+        let red=getrandomHex();
+        let green=getrandomHex();
+        let blue=getrandomHex();
+        return 'rgb(' + red +',' + green +','+blue+')';
+
+    }
+    function drawCircle() {
+        let color=makeColor();
+        let r=Math.floor(Math.random()*140);
+        let x=Math.random()*window.innerWidth;
+        let y=Math.random()*window.innerHeight;
+        let dan= new Circle(x,y,r);
+        let c=document.getElementById('draw');
+        let ctx=c.getContext('2d');
+        ctx.beginPath();
+        ctx.arc(dan.x,dan.y,dan.r,0,2*Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+    function drawMultiCircle(a) {
+        for (i=0;i<a;i++) {
+            drawCircle()
+        }
+    }
+    function randomNumber() {
+    return Math.floor(Math.random()*20)
+    }
+    drawMultiCircle(randomNumber());
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let circle=function (radius) {
+    this.radius=radius;
+    this.getRadius=function () {
+    return radius;
+    };
+    this.getArea=function () {
+    return Math.PI*radius*radius;
+    };
+    };
+    let dan = new circle(10);
+    let radius= dan.getRadius();
+    let area=dan.getArea();
+    console.log('radius :'+radius+'Area :'+area.toFixed(2));
+    let dan2= new circle(7);
+    let r=dan2.getRadius();
+    let s=dan2.getArea();
+    console.log('r = '+r+' S =' +s.toFixed(2));
+
+</script>
+
+</body>
+</html>
